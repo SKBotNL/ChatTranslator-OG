@@ -66,7 +66,7 @@ dependencies {
     compileOnly("net.essentialsx:EssentialsX:2.20.1")
     compileOnly(files("libs/AnnouncerPlus-1.3.6.jar"))
 
-    implementation("net.dv8tion:JDA:5.0.0-beta.24") {
+    implementation("net.dv8tion:JDA:5.0.0") {
         exclude(module = "opus-java")
     }
     implementation("club.minnced:jda-ktx:0.11.0-beta.20")

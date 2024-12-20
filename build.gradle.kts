@@ -73,7 +73,7 @@ dependencies {
     implementation("club.minnced:discord-webhooks:0.8.4")
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("io.github.crackthecodeabhi:kreds:0.9.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.0")
 }
 
 tasks.withType<AbstractArchiveTask>().configureEach {

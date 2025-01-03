@@ -109,7 +109,11 @@ val configurePython by tasks.creating(Exec::class) {
 val makePython by tasks.creating(Exec::class) {
     dependsOn(configurePython)
     workingDir("$rootDir/build/python")
-    commandLine("make")
+    commandLine("sh")
+    args(
+        "-c",
+        "make -j$(nproc)"
+    )
 }
 
 tasks.register<Exec>("installPython") {

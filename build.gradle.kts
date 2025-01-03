@@ -168,12 +168,6 @@ val customMavenLocal = System.getProperty("SELF_MAVEN_LOCAL_REPO")
 
 tasks.build {
     dependsOn("shadowJar")
-    if (!customMavenLocal.isNullOrEmpty()) {
-        logger.lifecycle("TrueOG Bootstrap detected. Will run buildPython before build.")
-        dependsOn("buildPython")
-    } else {
-        logger.lifecycle("buildPython task not specified. Translator will not function without it.")
-    }
 }
 
 tasks.jar.configure {

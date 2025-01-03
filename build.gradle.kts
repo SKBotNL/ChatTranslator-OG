@@ -41,7 +41,6 @@ tasks.named<ProcessResources>("processResources") {
 
 repositories {
     mavenCentral()
-
     maven {
         url = uri("https://repo.purpurmc.org/snapshots")
     }
@@ -65,7 +64,6 @@ dependencies {
     compileOnly("me.clip:placeholderapi:2.11.6")
     compileOnly("net.essentialsx:EssentialsX:2.20.1")
     compileOnly(files("libs/AnnouncerPlus-1.3.6.jar"))
-
     implementation("net.dv8tion:JDA:5.1.2") {
         exclude(module = "opus-java")
     }
@@ -166,6 +164,8 @@ tasks.register("buildPython") {
     dependsOn("installPython")
 }
 
+val customMavenLocal = System.getProperty("SELF_MAVEN_LOCAL_REPO")
+
 tasks.build {
     dependsOn("shadowJar")
 }
@@ -176,7 +176,7 @@ tasks.jar.configure {
 
 tasks.withType<JavaCompile>().configureEach {
     options.compilerArgs.add("-parameters")
-    options.encoding = "UTF-8" 
+    options.encoding = "UTF-8"
 	options.forkOptions.executable = File(options.forkOptions.javaHome, "bin/javac").path
 }
 

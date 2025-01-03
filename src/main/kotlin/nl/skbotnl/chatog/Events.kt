@@ -45,10 +45,10 @@ class Events : Listener {
 
         var chatString = "${ChatOG.chat.getPlayerPrefix(event.player)}${event.player.name}"
 
-        if (PlaceholderAPI.setPlaceholders(event.player, "%parties_party%") != "") {
+        if (PlaceholderAPI.setPlaceholders(event.player, "%simpleclans_clan_color_tag%") != "") {
             chatString = PlaceholderAPI.setPlaceholders(
                 event.player,
-                "&8[%parties_color_code%%parties_party%&8] $chatString"
+                "&8[%simpleclans_clan_color_tag%&8] $chatString"
             )
         }
 
@@ -72,10 +72,10 @@ class Events : Listener {
 
         var chatString = "${ChatOG.chat.getPlayerPrefix(event.player)}${event.player.name}"
 
-        if (PlaceholderAPI.setPlaceholders(event.player, "%parties_party%") != "") {
+        if (PlaceholderAPI.setPlaceholders(event.player, "%simpleclans_clan_color_tag%") != "") {
             chatString = PlaceholderAPI.setPlaceholders(
                 event.player,
-                "&8[%parties_color_code%%parties_party%&8] $chatString"
+                "&8[%simpleclans_clan_color_tag%&8] $chatString"
             )
         }
 
@@ -99,10 +99,10 @@ class Events : Listener {
 
         var chatString = "${ChatOG.chat.getPlayerPrefix(event.player)}${event.player.name}"
 
-        if (PlaceholderAPI.setPlaceholders(event.player, "%parties_party%") != "") {
+        if (PlaceholderAPI.setPlaceholders(event.player, "%simpleclans_clan_color_tag%") != "") {
             chatString = PlaceholderAPI.setPlaceholders(
                 event.player,
-                "&8[%parties_color_code%%parties_party%&8] $chatString"
+                "&8[%simpleclans_clan_color_tag%&8] $chatString"
             )
         }
 
@@ -128,10 +128,10 @@ class Events : Listener {
 
         var chatString = "${ChatOG.chat.getPlayerPrefix(event.player)}${event.player.name}"
 
-        if (PlaceholderAPI.setPlaceholders(event.player, "%parties_party%") != "") {
+        if (PlaceholderAPI.setPlaceholders(event.player, "%simpleclans_clan_color_tag%") != "") {
             chatString = PlaceholderAPI.setPlaceholders(
                 event.player,
-                "&8[%parties_color_code%%parties_party%&8] $chatString"
+                "&8[%simpleclans_clan_color_tag%&8] $chatString"
             )
         }
 
@@ -193,9 +193,9 @@ class Events : Listener {
 
         var chatString = "${ChatOG.chat.getPlayerPrefix(event.player)}${event.player.name}"
 
-        if (PlaceholderAPI.setPlaceholders(event.player, "%parties_party%") != "") {
+        if (PlaceholderAPI.setPlaceholders(event.player, "%simpleclans_clan_color_tag%") != "") {
             chatString =
-                PlaceholderAPI.setPlaceholders(event.player, "&8[%parties_color_code%%parties_party%&8] $chatString")
+                PlaceholderAPI.setPlaceholders(event.player, "&8[%simpleclans_clan_color_tag%&8] $chatString")
         }
 
         val discordMessageString = Helper.convertEmojis(oldTextComponent.content())
@@ -389,9 +389,9 @@ class Events : Listener {
 
         var nameString = "${ChatOG.chat.getPlayerPrefix(event.player)}${event.player.name}"
 
-        if (PlaceholderAPI.setPlaceholders(event.player, "%parties_party%") != "") {
+        if (PlaceholderAPI.setPlaceholders(event.player, "%simpleclans_clan_color_tag%") != "") {
             nameString =
-                PlaceholderAPI.setPlaceholders(event.player, "&8[%parties_color_code%%parties_party%&8] $nameString")
+                PlaceholderAPI.setPlaceholders(event.player, "&8[%simpleclans_clan_color_tag%&8] $nameString")
         }
         val nameComponent = ChatOG.mm.deserialize(legacyToMm(nameString))
 

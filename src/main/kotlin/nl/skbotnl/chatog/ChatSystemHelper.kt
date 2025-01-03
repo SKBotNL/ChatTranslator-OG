@@ -28,8 +28,8 @@ object ChatSystemHelper {
     fun sendMessageInStaffChat(player: Player, text: String) {
         var chatString = "${ChatOG.chat.getPlayerPrefix(player)}${player.name}"
 
-        if (PlaceholderAPI.setPlaceholders(player, "%parties_party%") != "") {
-            chatString = PlaceholderAPI.setPlaceholders(player, "&8[%parties_color_code%%parties_party%&8] $chatString")
+        if (PlaceholderAPI.setPlaceholders(player, "%simpleclans_clan_color_tag%") != "") {
+            chatString = PlaceholderAPI.setPlaceholders(player, "&8[%simpleclans_clan_color_tag%&8] $chatString")
         }
         chatString = "&cSTAFF | $chatString"
 
@@ -77,8 +77,8 @@ object ChatSystemHelper {
     fun sendMessageInDonorChat(player: Player, text: String) {
         var chatString = "${ChatOG.chat.getPlayerPrefix(player)}${player.name}"
 
-        if (PlaceholderAPI.setPlaceholders(player, "%parties_party%") != "") {
-            chatString = PlaceholderAPI.setPlaceholders(player, "&8[%parties_color_code%%parties_party%&8] $chatString")
+        if (PlaceholderAPI.setPlaceholders(player, "%simpleclans_clan_color_tag%") != "") {
+            chatString = PlaceholderAPI.setPlaceholders(player, "&8[%simpleclans_clan_color_tag%&8] $chatString")
         }
         chatString = "&aDONOR | $chatString"
 

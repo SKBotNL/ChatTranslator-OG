@@ -135,10 +135,10 @@ class TranslateMessage : CommandExecutor {
                     "${ChatOG.chat.getPlayerPrefix(sentChatMessage.player)}${sentChatMessage.player.name}${
                         ChatOG.chat.getPlayerSuffix(sentChatMessage.player)
                     }"
-                if (PlaceholderAPI.setPlaceholders(sentMessage.player, "%parties_party%") != "") {
+                if (PlaceholderAPI.setPlaceholders(sentMessage.player, "%simpleclans_clan_color_tag%") != "") {
                     playerString = PlaceholderAPI.setPlaceholders(
                         sentMessage.player,
-                        "&8[%parties_color_code%%parties_party%&8] $playerString"
+                        "&8[%simpleclans_clan_color_tag%&8] $playerString"
                     )
                 }
                 val playerComponent =

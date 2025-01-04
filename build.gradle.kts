@@ -1,12 +1,16 @@
 import de.undercouch.gradle.tasks.download.Download
+import org.gradle.api.tasks.Exec
+import org.gradle.api.tasks.Copy
+import org.gradle.api.tasks.bundling.AbstractArchiveTask
 import java.io.BufferedOutputStream
+import java.io.File
 import java.io.FileOutputStream
 import java.nio.file.Files
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "2.0.21"
+    id("org.jetbrains.kotlin.jvm") version "2.1.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("de.undercouch.download") version "5.6.0"
     id("maven-publish")
@@ -33,7 +37,6 @@ tasks.named<ProcessResources>("processResources") {
         "version" to version,
         "apiVersion" to apiVersion,
     )
-
     filesMatching("plugin.yml") {
         expand(props)
     }
@@ -65,15 +68,14 @@ dependencies {
     compileOnly("me.clip:placeholderapi:2.11.6")
     compileOnly("net.essentialsx:EssentialsX:2.20.1")
     compileOnly(files("libs/AnnouncerPlus-1.3.6.jar"))
-
-    implementation("net.dv8tion:JDA:5.1.2") {
+    implementation("net.dv8tion:JDA:5.2.2") {
         exclude(module = "opus-java")
     }
     implementation("club.minnced:jda-ktx:0.12.0")
     implementation("club.minnced:discord-webhooks:0.8.4")
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("io.github.crackthecodeabhi:kreds:0.9.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
 }
 
 tasks.withType<AbstractArchiveTask>().configureEach {
@@ -100,7 +102,9 @@ val unzipPython by tasks.creating(Copy::class) {
 
 val configurePython by tasks.creating(Exec::class) {
     dependsOn(unzipPython)
-    Files.createDirectories(file("$rootDir/build/python/build").toPath())
+    doFirst {
+        Files.createDirectories(file("$rootDir/build/python/build").toPath())
+    }
     workingDir("./build/python")
     commandLine("./configure")
     args(
@@ -139,7 +143,6 @@ tasks.shadowJar {
 
 tasks.shadowJar.configure {
     archiveClassifier.set("")
-
     if (!file("$rootDir/build/python/python.zip").exists() && file("$rootDir/build/python/install/usr/local/").exists()) {
         val inputDirectory = File("$rootDir/build/python/install/usr/local/")
         val outputZipFile = File("$rootDir/build/python/python.zip")
@@ -155,15 +158,25 @@ tasks.shadowJar.configure {
             }
         }
     }
-
     if (file("$rootDir/build/python/python.zip").exists()) {
         from("$rootDir/build/python/python.zip")
     }
 }
 
-tasks.register("buildPython") {
+tasks.register<Exec>("buildPython") {
     group = "Chat-OG"
-    dependsOn("installPython")
+    description = "Builds Python only if run as the sole task or as a pre-build step."
+    val isPreBuildRun = System.getenv("PRE_BUILD_PYTHON_RUN")?.toBoolean() ?: false
+    onlyIf {
+        val isSoleTask = gradle.startParameter.taskNames.contains("buildPython") && gradle.startParameter.taskNames.size == 1
+        val shouldRun = isSoleTask || isPreBuildRun
+        shouldRun
+    }
+    if (gradle.startParameter.taskNames.contains("buildPython") &&
+        gradle.startParameter.taskNames.size == 1 ||
+        isPreBuildRun) {
+        dependsOn("installPython")
+    }
 }
 
 tasks.build {
@@ -176,8 +189,8 @@ tasks.jar.configure {
 
 tasks.withType<JavaCompile>().configureEach {
     options.compilerArgs.add("-parameters")
-    options.encoding = "UTF-8" 
-	options.forkOptions.executable = File(options.forkOptions.javaHome, "bin/javac").path
+    options.encoding = "UTF-8"
+    options.forkOptions.executable = File(options.forkOptions.javaHome, "bin/javac").path
 }
 
 kotlin {

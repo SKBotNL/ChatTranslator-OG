@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const https = require('https')
 
-const EMOJI_VERSION = '15.1'
+const EMOJI_VERSION = '16.0'
 
 main()
 
@@ -75,5 +75,5 @@ function parseLine (line) {
 const rel = (...args) => path.resolve(__dirname, ...args)
 
 function writeFiles({ full, compact }) {
-  fs.writeFileSync(rel('./src/main/resources/emoji.json'), JSON.stringify(full), 'utf8')
+  fs.writeFileSync(rel('./src/main/resources/emoji.json'), JSON.stringify(full, null, 2), 'utf8')
 }

@@ -244,6 +244,10 @@
     "name": "sleeping_face"
   },
   {
+    "char": "🫩",
+    "name": "face_with_bags_under_eyes"
+  },
+  {
     "char": "😷",
     "name": "face_with_medical_mask"
   },
@@ -2976,6 +2980,10 @@
     "name": "footprints"
   },
   {
+    "char": "🫆",
+    "name": "fingerprint"
+  },
+  {
     "char": "🦰",
     "name": "red_hair"
   },
@@ -3440,6 +3448,26 @@
     "name": "jellyfish"
   },
   {
+    "char": "🦀",
+    "name": "crab"
+  },
+  {
+    "char": "🦞",
+    "name": "lobster"
+  },
+  {
+    "char": "🦐",
+    "name": "shrimp"
+  },
+  {
+    "char": "🦑",
+    "name": "squid"
+  },
+  {
+    "char": "🦪",
+    "name": "oyster"
+  },
+  {
     "char": "🐌",
     "name": "snail"
   },
@@ -3632,6 +3660,10 @@
     "name": "mushroom"
   },
   {
+    "char": "🪾",
+    "name": "leafless_tree"
+  },
+  {
     "char": "🍇",
     "name": "grapes"
   },
@@ -3786,6 +3818,10 @@
   {
     "char": "🍄‍🟫",
     "name": "brown_mushroom"
+  },
+  {
+    "char": "🫜",
+    "name": "root_vegetable"
   },
   {
     "char": "🍞",
@@ -3990,26 +4026,6 @@
   {
     "char": "🥡",
     "name": "takeout_box"
-  },
-  {
-    "char": "🦀",
-    "name": "crab"
-  },
-  {
-    "char": "🦞",
-    "name": "lobster"
-  },
-  {
-    "char": "🦐",
-    "name": "shrimp"
-  },
-  {
-    "char": "🦑",
-    "name": "squid"
-  },
-  {
-    "char": "🦪",
-    "name": "oyster"
   },
   {
     "char": "🍦",
@@ -5960,6 +5976,10 @@
     "name": "flute"
   },
   {
+    "char": "🪉",
+    "name": "harp"
+  },
+  {
     "char": "📱",
     "name": "mobile_phone"
   },
@@ -6666,6 +6686,10 @@
   {
     "char": "🪜",
     "name": "ladder"
+  },
+  {
+    "char": "🪏",
+    "name": "shovel"
   },
   {
     "char": "⚗️",
@@ -7648,6 +7672,10 @@
     "name": "trade_mark"
   },
   {
+    "char": "🫟",
+    "name": "splatter"
+  },
+  {
     "char": "#️⃣",
     "name": "keycap_#"
   },
@@ -8354,6 +8382,10 @@
   {
     "char": "🇨🇵",
     "name": "flag_clipperton_island"
+  },
+  {
+    "char": "🇨🇶",
+    "name": "flag_sark"
   },
   {
     "char": "🇨🇷",

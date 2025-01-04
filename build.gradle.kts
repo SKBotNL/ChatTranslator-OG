@@ -1,9 +1,5 @@
 import de.undercouch.gradle.tasks.download.Download
-import org.gradle.api.tasks.Exec
-import org.gradle.api.tasks.Copy
-import org.gradle.api.tasks.bundling.AbstractArchiveTask
 import java.io.BufferedOutputStream
-import java.io.File
 import java.io.FileOutputStream
 import java.nio.file.Files
 import java.util.zip.ZipEntry
